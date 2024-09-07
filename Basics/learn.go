@@ -1,9 +1,11 @@
-# All basics of Golang Language
+package main
 
-## variables
+import (
+	
+	"fmt"
+)
 
-```Golang
-
+func main(){
 	// Boolean type
 	var isGoFun bool = true
 	fmt.Println("Boolean value:", isGoFun)
@@ -45,28 +47,12 @@
 	// Byte type (alias for uint8, represents a single byte)
 	var byteVal byte = 255
 	fmt.Println("Byte:", byteVal)
-```
 
-
-## declaring variables
-
-``` Golang
-// normal way 
-var carType string = "BMW"
-// let go give the type
- carType := "BMW"
-// one line declaration
-
-mileage , company := 80276  , "Tesla" 
-
-```
-
-## `const`
-```Golang
-const firstName = "Girgis"
-
-
-```
-
-
-
+     // normal way 
+    //       var carType string = "BMW"
+    //// let go give the type
+    // 	carType2 := "BMW"
+    //// one line declaration
+    //      mileage , company := 80276  , "Tesla"
+    const firstName = "Girgis"
+}
