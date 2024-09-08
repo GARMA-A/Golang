@@ -45,28 +45,202 @@
 	// Byte type (alias for uint8, represents a single byte)
 	var byteVal byte = 255
 	fmt.Println("Byte:", byteVal)
+
+       // normal way
+       var carType string = "BMW"
+       // let go give the type
+       carType := "BMW"
+       // one line declaration
+
+       // normal way
+       var carType string = "BMW"
+       // let go give the type
+       carType := "BMW"
+       // one line declaration
+       car,price := "BMW",20_000_000
+
+
 ```
 
+## Printf and scanf
 
-## declaring variables
 
-``` Golang
-// normal way 
-var carType string = "BMW"
-// let go give the type
- carType := "BMW"
-// one line declaration
-
-mileage , company := 80276  , "Tesla" 
-
-```
-
-## `const`
 ```Golang
-const firstName = "Girgis"
+
+ // Declare variables for different types
+    var i int
+    var f float64
+    var str string
+    var b bool
+    var any interface{}
+
+    // Scanning inputs
+    fmt.Println("Enter an integer:")
+    fmt.Scanf("%d", &i) // Scans an integer
+
+    fmt.Println("Enter a float:")
+    fmt.Scanf("%f", &f) // Scans a float
+
+    fmt.Println("Enter a string:")
+    fmt.Scanf("%s", &str) // Scans a string
+
+    fmt.Println("Enter a boolean (true/false):")
+    fmt.Scanf("%t", &b) // Scans a boolean
+
+    fmt.Println("Enter any value (default representation):")
+    fmt.Scanf("%v", &any) // Scans any value
+
+    // Printing the values using various format specifiers
+    fmt.Printf("Integer (%%d): %d\n", i)
+    fmt.Printf("Float (%%f): %.2f\n", f) // prints float with 2 decimal places
+    fmt.Printf("String (%%s): %s\n", str)
+    fmt.Printf("Boolean (%%t): %t\n", b)
+    fmt.Printf("Default representation (%%v): %v\n", any)
+
+    // Using %T to print the type of a variable
+    fmt.Printf("Type of any (%%T): %T\n", any)
+
+```
+
+## conditionals
+
+```Golang
+if height >4 {
+	fmt.Println("Your height is more than 4")
+} 
+else if height <4 {
+fmt.Println("Your height is more than 4")
+}
+else
+{
+	fmt.println("Your height = 4")
+}
+// the variable now is accessable on this if statement only
+if length := len(str); length < 1 {
+	fmt.Printf("Str is empty")
+}
+
+```
+
+## switch
+
+```go
+switch x {
+    case 1:
+        fmt.Println("x is 1")
+    case 2:
+        fmt.Println("x is 2")
+    case 3:
+        fmt.Println("x is 3")
+    default:
+        fmt.Println("x is unknown")
+    }
+
+```
+
+
+
+
+
+
+## functions
+
+```Golang
+
+func add(x, y int) int { // 10 20
+	return x + y
+}
+func subtract(x, y int) int { // 30 40
+	return x - y
+}
+
+
+func calculator(x1, y1 int, func1 func(x1, y1 int) int, x2, y2 int, func2 func(x2, y2 int) int, op string) int {
+	switch op {
+	case "+":
+		return func1(x1, y1) + func2(x2, y2)
+	case "-":
+		return func1(x1, y1) - func2(x2, y2)
+	case "*":
+		return func1(x1, y1) * func2(x2, y2)
+	case "/":
+		// Handle division by zero
+		if func2(x2, y2) == 0 {
+			fmt.Println("Error: Division by zero")
+			return 0
+		}
+		return func1(x1, y1) / func2(x2, y2)
+	default:
+		fmt.Println("Error: Invalid operation")
+		return 0
+	}
+}
+
+x1, y1 , x2 , y2 := 10, 20,30,40
+
+fmt.Println(calculator(x1, y1, add, x2, y2, subtract, "+"))
+
+//output 20
+/*************************************/
+
+func getname() (string, string) {
+	return "Girgis", "GARMA"
+}
+
+name1 , _ :=getnames()
+println(name1)
+
 
 
 ```
+
+```diff
+func explicitReturn() (age int , name string){
+ 	name,age := "girgis",20
+-      return name , age
++ 	return 
+}
+println(explicitReturn()) 
+// output : name , age
+// both of this syntax will work
+
+
+```
+
+
+## struct 
+
+```go
+type user struct {
+	name  string
+	age   int
+}
+
+var usr user 
+
+usr.name = "Girgis"
+usr.age = 20
+
+fmt.Println(usr)
+
+// struct to use once
+
+myCar := struct {
+	make string
+	model string
+}{
+	make: "tesla"
+	model : "model 3"
+}
+
+
+
+
+```
+
+
+
+
 
 
 
