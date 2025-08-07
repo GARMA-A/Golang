@@ -1,13 +1,7 @@
 package main
 
-import (
-	"fmt"
-)
-
-
-
-func main(){
-
-
-
-}	
+func main() {
+	for {
+		print("welcome to go lang ")
+	}
+}
